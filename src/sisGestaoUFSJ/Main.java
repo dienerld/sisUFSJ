@@ -224,19 +224,29 @@ public class Main {
         return pessoa;
     }
 
-    public static Colaborador verificarColaborador(Colaborador pesssoa) {
+    public static Colaborador verificarColaborador(Colaborador pessoa) {
         int tamVetor = 0;
         while (colaboradores[tamVetor] != null) {
-            if (pesssoa.Nome.equalsIgnoreCase(colaboradores[tamVetor].Nome)) {
-                if (pesssoa.Email.equalsIgnoreCase(colaboradores[tamVetor].Email)) {
-                    pesssoa = colaboradores[tamVetor];
+            if (pessoa.Nome.equalsIgnoreCase(colaboradores[tamVetor].Nome)) {
+                if (pessoa.Email.equalsIgnoreCase(colaboradores[tamVetor].Email)) {
+                    pessoa = colaboradores[tamVetor];
                     Console.println("EntrouIF");
-                    return pesssoa;
+                    return pessoa;
                 }
             }
             tamVetor++;
         }
-        return pesssoa;
+        return pessoa;
     }
 
+    public static void inserirColaborador(Colaborador pessoa) {
+        int tamVetor = 0;
+        while (colaboradores[tamVetor] != null) {
+            if (pessoa.Nome.equalsIgnoreCase(colaboradores[tamVetor].Nome)) {
+                if (pessoa.Email.equalsIgnoreCase(colaboradores[tamVetor].Email)) {
+                    colaboradores[tamVetor] = pessoa;
+                }
+            }
+            tamVetor++;
+    }
 }
