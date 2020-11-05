@@ -63,6 +63,7 @@ public class Main {
                     opcao = Integer.parseInt(Console.readLine());
                     break;
                 case 3:
+                    listarProjeto();
                     break;
                 default:
                     break;
@@ -253,7 +254,24 @@ public class Main {
         colaboradores[tamVetor] = pessoa;
     }
 
-    public static void listarProjeto(Projeto projeto) {
-        Console.printf("text");
+    public static void listarProjeto() {
+        int tamVetor = 0;
+        if (projetos[tamVetor] == null) {
+            Console.printf("Não há projetos!\n");
+            return;
+        } else {
+            while (projetos[tamVetor] != null) {
+                Console.printf(projetos[tamVetor].id + " - " + projetos[tamVetor].titulo + "\n");
+                tamVetor++;
+            }
+            Console.printf("Digite o ID do projeto: ");
+            int Id = 0;
+            Id = Integer.parseInt(Console.readLine());
+            Console.printf(projetos[Id].id + "\n" + projetos[Id].titulo + "\n" + projetos[Id].dataInicio + "\n"
+                    + projetos[Id].dataTermino + "\n" + projetos[Id].agenciaFinanciadora + "\n"
+                    + projetos[Id].valorFinanciado + "\n" + projetos[Id].objetivo + "\n" + projetos[Id].descrição
+                    + "\n");
+            return;
+        }
     }
 }
