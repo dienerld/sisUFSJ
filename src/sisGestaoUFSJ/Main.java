@@ -45,6 +45,7 @@ public class Main {
                             FunctionProjetos.printTituloProjetos(projetos, numProjetos);
                             Console.printf("Digite o ID do Projeto: ");
                             id = Integer.parseInt(Console.readLine());
+                            // alterarProjeto(opcao);
 
                             break;
                         case 2:
@@ -59,7 +60,7 @@ public class Main {
                     }
                     Console.println("Continuar: \n1 - Sim\n2 - Não");
                     Console.printf("OPÇÃO: ");
-                    opcao = Integer.parseInt(Console.readLine()); // alterarProjeto(opcao);
+                    opcao = Integer.parseInt(Console.readLine());
                     break;
                 case 3:
                     break;
@@ -201,12 +202,12 @@ public class Main {
                 pessoa = projetosPessoais(pessoa, projeto.titulo);
 
                 if (pessoa.id == tamColab) {
-                    colaboradores[tamColab] = pessoa;
                     projeto.colaboradores[tamColab] = pessoa;
                     tamColab++;
                 } else {
                     projeto.colaboradores[pessoa.id] = pessoa;
                 }
+                inserirColaborador(pessoa);
             }
         } while (opcao != 0);
         if (projeto.validade && (tamColab - 1) < 1) {
@@ -248,5 +249,10 @@ public class Main {
                 }
             }
             tamVetor++;
+        }
+    }
+
+    public static void listarProjeto(Projeto projeto) {
+        Console.printf("text");
     }
 }
