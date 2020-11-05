@@ -250,6 +250,7 @@ public class Main {
             }
             tamVetor++;
         }
+        colaboradores[tamVetor] = pessoa;
     }
 
     public static void listarProjeto(Projeto projeto) {
