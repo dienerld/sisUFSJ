@@ -45,6 +45,7 @@ public class Main {
                             FunctionProjetos.printTituloProjetos(projetos, numProjetos);
                             Console.printf("Digite o ID do Projeto: ");
                             id = Integer.parseInt(Console.readLine());
+                            // alterarProjeto(opcao);
 
                             break;
                         case 2:
@@ -59,9 +60,10 @@ public class Main {
                     }
                     Console.println("Continuar: \n1 - Sim\n2 - Não");
                     Console.printf("OPÇÃO: ");
-                    opcao = Integer.parseInt(Console.readLine()); // alterarProjeto(opcao);
+                    opcao = Integer.parseInt(Console.readLine());
                     break;
                 case 3:
+                    listarProjeto();
                     break;
                 default:
                     break;
@@ -201,12 +203,12 @@ public class Main {
                 pessoa = projetosPessoais(pessoa, projeto.titulo);
 
                 if (pessoa.id == tamColab) {
-                    colaboradores[tamColab] = pessoa;
                     projeto.colaboradores[tamColab] = pessoa;
                     tamColab++;
                 } else {
                     projeto.colaboradores[pessoa.id] = pessoa;
                 }
+                inserirColaborador(pessoa);
             }
         } while (opcao != 0);
         if (projeto.validade && (tamColab - 1) < 1) {
@@ -248,5 +250,28 @@ public class Main {
                 }
             }
             tamVetor++;
+        }
+        colaboradores[tamVetor] = pessoa;
+    }
+
+    public static void listarProjeto() {
+        int tamVetor = 0;
+        if (projetos[tamVetor] == null) {
+            Console.printf("Não há projetos!\n");
+            return;
+        } else {
+            while (projetos[tamVetor] != null) {
+                Console.printf(projetos[tamVetor].id + " - " + projetos[tamVetor].titulo + "\n");
+                tamVetor++;
+            }
+            Console.printf("Digite o ID do projeto: ");
+            int Id = 0;
+            Id = Integer.parseInt(Console.readLine());
+            Console.printf(projetos[Id].id + "\n" + projetos[Id].titulo + "\n" + projetos[Id].dataInicio + "\n"
+                    + projetos[Id].dataTermino + "\n" + projetos[Id].agenciaFinanciadora + "\n"
+                    + projetos[Id].valorFinanciado + "\n" + projetos[Id].objetivo + "\n" + projetos[Id].descrição
+                    + "\n");
+            return;
+        }
     }
 }
