@@ -9,7 +9,7 @@ public class Main {
     static int numProjetos = 0;
     static int id = -1;
 
-    static String arq = "/home/dnr/OneDrive/sisGestaoUFSJ/src/sisGestaoUFSJ/Projeto1.dih";
+    static String arq = "/home/dnr/OneDrive/sisGestaoUFSJ/src/sisGestaoUFSJ/Projeto1.txt";
     static String conteudo = Arquivo.Read(arq);
     static String[] keyWord = conteudo.split(";");
     static int keyIndex = 0;
@@ -17,7 +17,7 @@ public class Main {
     static String verAutomatico = "/home/dnr/OneDrive/sisGestaoUFSJ/src/sisGestaoUFSJ/configAutomatico.conf";
     static int automatic = Integer.parseInt(Arquivo.Read(verAutomatico).split("\n")[1]);
 
-    static String arqUser = "/home/dnr/OneDrive/sisGestaoUFSJ/src/sisGestaoUFSJ/colab.dih";
+    static String arqUser = "/home/dnr/OneDrive/sisGestaoUFSJ/src/sisGestaoUFSJ/colab.txt";
     static String conteudoUser = Arquivo.Read(arqUser);
     static String[] keyWordUser = conteudoUser.split(";");
     static int keyIndexUser = 0;
