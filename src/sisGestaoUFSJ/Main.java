@@ -24,7 +24,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println(automatic);
         int opcao = 0;
         do {
             Console.println("1 - Cadastrar Novo Projeto");
@@ -45,7 +44,6 @@ public class Main {
                             FunctionProjetos.printTituloProjetos(projetos, numProjetos);
                             Console.printf("Digite o ID do Projeto: ");
                             id = Integer.parseInt(Console.readLine());
-                            // alterarProjeto(opcao);
 
                             break;
                         case 2:
@@ -55,6 +53,7 @@ public class Main {
 
                             projetos[id] = inserirColaboradores(projetos[id],
                                     FunctionProjetos.contaColaboradores(projetos[id]));
+                            break;
                         default:
                             break;
                     }
@@ -229,12 +228,10 @@ public class Main {
     public static Colaborador verificarColaborador(Colaborador pessoa) {
         int tamVetor = 0;
         while (colaboradores[tamVetor] != null) {
-            if (pessoa.Nome.equalsIgnoreCase(colaboradores[tamVetor].Nome)) {
-                if (pessoa.Email.equalsIgnoreCase(colaboradores[tamVetor].Email)) {
-                    pessoa = colaboradores[tamVetor];
-                    Console.println("EntrouIF");
-                    return pessoa;
-                }
+            if (pessoa.Nome.equalsIgnoreCase(colaboradores[tamVetor].Nome) && pessoa.Email.equalsIgnoreCase(colaboradores[tamVetor].Email)) {
+                pessoa = colaboradores[tamVetor];
+                Console.println("EntrouIF");
+                return pessoa;
             }
             tamVetor++;
         }
@@ -244,10 +241,8 @@ public class Main {
     public static void inserirColaborador(Colaborador pessoa) {
         int tamVetor = 0;
         while (colaboradores[tamVetor] != null) {
-            if (pessoa.Nome.equalsIgnoreCase(colaboradores[tamVetor].Nome)) {
-                if (pessoa.Email.equalsIgnoreCase(colaboradores[tamVetor].Email)) {
-                    colaboradores[tamVetor] = pessoa;
-                }
+            if (pessoa.Nome.equalsIgnoreCase(colaboradores[tamVetor].Nome) && pessoa.Email.equalsIgnoreCase(colaboradores[tamVetor].Email)) {
+                colaboradores[tamVetor] = pessoa;
             }
             tamVetor++;
         }
@@ -258,7 +253,6 @@ public class Main {
         int tamVetor = 0;
         if (projetos[tamVetor] == null) {
             Console.printf("Não há projetos!\n");
-            return;
         } else {
             while (projetos[tamVetor] != null) {
                 Console.printf(projetos[tamVetor].id + " - " + projetos[tamVetor].titulo + "\n");
@@ -271,7 +265,6 @@ public class Main {
                     + projetos[Id].dataTermino + "\n" + projetos[Id].agenciaFinanciadora + "\n"
                     + projetos[Id].valorFinanciado + "\n" + projetos[Id].objetivo + "\n" + projetos[Id].descrição
                     + "\n");
-            return;
         }
     }
 }
