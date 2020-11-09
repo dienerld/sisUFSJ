@@ -11,7 +11,7 @@ public class FunctionProjetos {
         int tamEquipe = 0;
 
         for (int i = 0; i < projeto.colaboradores.length; i++) {
-            if (projeto.colaboradores[i].professor && projeto.colaboradores[i].Cargo == "Orientaddor") {
+            if (projeto.colaboradores[i].professor && projeto.colaboradores[i].Cargo.equals( "Orientaddor")) {
                 Orientador = projeto.colaboradores[i].Nome;
             } else {
                 Equipe[tamEquipe] = projeto.colaboradores[i].Nome;
